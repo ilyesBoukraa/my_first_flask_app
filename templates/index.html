@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>flask intro</title>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="content">
+  <div class="table-container">
+    <h1>Task Master</h1>
+  </div>
+
+  {% if tasks|length<1 %}
+  <h3> There are no Tasks, please add ones!</h3>
+  {% else %}
+  <table>
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Added</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for task in tasks %}
+      <tr>
+        <td>{{ task.content }}</td>
+        <td>{{ task.date_created.date() }}</td>
+        <td class="actions">
+          <a href="/delete/{{task.id}}">Delete</a>
+          <br>
+          <a href="/update/{{task.id}}">Update</a>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+  <form action="/" method="POST">
+    <input type="text" name="content" id="content">
+    <input type="submit" value="Add Task">
+  </form>
+
+</div>
+{% endblock %}

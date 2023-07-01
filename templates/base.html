@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/main.css') }}">
+    
+    <style>
+        .table-container {
+          display: flex;
+          justify-content: center;
+        }
+        
+        .table-container table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+        
+        .table-container th,
+        .table-container td {
+          border: 1px solid black;
+          padding: 8px;
+          text-align: center;
+          display: flex;
+          align-items: center;
+        }
+        
+        .table-container th {
+          background-color: #f2f2f2;
+        }
+        
+        .table-container .actions {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        </style>
+        
+    
+    
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    {% block body %}{% endblock %}
+</body>
+
+</html>
